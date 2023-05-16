@@ -35,7 +35,7 @@ if (ENDPOINT) {
   s3options.endpoint = ENDPOINT;
 }
 
-const s3 = new S3(s3options);
+const s3 = new S3();
 const destinationDir = DESTINATION_DIR === '/' ? shortid() : DESTINATION_DIR;
 const paths = klawSync(SOURCE_DIR, {
   nodir: true,
