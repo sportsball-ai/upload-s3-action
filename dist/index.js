@@ -28885,12 +28885,6 @@ const slash = (__nccwpck_require__(3433)/* ["default"] */ .Z);
 const klawSync = __nccwpck_require__(9036);
 const { lookup } = __nccwpck_require__(3583);
 
-const AWS_KEY_ID = core.getInput('aws_key_id', {
-  required: true,
-});
-const SECRET_ACCESS_KEY = core.getInput('aws_secret_access_key', {
-  required: true,
-});
 const BUCKET = core.getInput('aws_bucket', {
   required: true,
 });
@@ -28900,18 +28894,6 @@ const SOURCE_DIR = core.getInput('source_dir', {
 const DESTINATION_DIR = core.getInput('destination_dir', {
   required: false,
 });
-const ENDPOINT = core.getInput('endpoint', {
-  required: false,
-});
-
-const s3options = {
-  accessKeyId: AWS_KEY_ID,
-  secretAccessKey: SECRET_ACCESS_KEY,
-};
-
-if (ENDPOINT) {
-  s3options.endpoint = ENDPOINT;
-}
 
 const s3 = new S3();
 const destinationDir = DESTINATION_DIR === '/' ? shortid() : DESTINATION_DIR;
